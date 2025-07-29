@@ -6,7 +6,7 @@ return {
     },
     config = function()
       require("live-share.provider").register("live-share-socat", {
-        command = function(cfg, port, service_url)
+        command = function(_cfg, port, service_url)
           return string.format("live-share-socat %d %d > %s", port, port, service_url)
         end,
         pattern = "%d+.%d+.%d+.%d+ %d+",

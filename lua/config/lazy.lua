@@ -15,6 +15,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+  -- keep plugin versions pinned per NVIM_APPNAME (host vs distrobox), since
+  -- native builds differ between environments and stdpath("data") is already
+  -- separate per app name
+  lockfile = vim.fn.stdpath("data") .. "/lazy-lock.json",
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
